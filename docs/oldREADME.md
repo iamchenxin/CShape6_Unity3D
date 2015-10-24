@@ -1,10 +1,18 @@
-# Install #
+# Can I use C# 6.0 in Unity? #
 
-1. Copy `bin\smcs.exe` from this repository to your `\Unity\Editor\Data\Mono\lib\mono\2.0` folder. Just copy, there's nothing to replace.
+Yes, you can.
+
+Unity has been stuck with CLR 2.0 for a very long time, but almost all the latest C# features do not require the latest versions of CLR. Microsoft and Mono compilers can compile C# 6.0 code for CLR 2.0 if you explicitly ask them to do so.
+
+Late binding (`dynamic`) feature that came with C# 4.0 still won't be available in Unity, because it relies on CLR 4.0 that we don't have yet.
+
+# Ok, what should I do ? #
+
+1. Copy `smcs\smcs\bin\Release\smcs.exe` from this repository to your `\Unity\Editor\Data\Mono\lib\mono\2.0` folder. Just copy, there's nothing to replace.
 
 2. Create a new Unity project or open an existing one. Make sure that `Project Settings`/`Player`/`API Compatibility Level` is set to `.Net 2.0`.
 
-3. Copy `bin\mcs.exe` or `bin\Roslyn` folder to your project's root.
+3. Copy `mcs.exe` or `Roslyn` folder to your project's root.
 
 That's it.
 
@@ -26,26 +34,10 @@ It means that Unity will use the alternative compiler only in those projects, wh
 
 The source code is released under [WTFPL version 2](http://www.wtfpl.net/about/).
 
-# Original talk thread at forum.unity3d.com#
+# Want to talk about it? #
 
 http://forum.unity3d.com/threads/c-6-0.314297/#post-2108999
 
-### CShape Features in Unity3d (with Roslyn compiled)
-| Features                  |   mono2x|  IL2CPP|
-| :------------             | -------:| ------:|
-| Async/Await               |       ✔|      ✘|
-| Await In Catch Finally    |       ✔|      ✔|
-| Caller Info               |       ✔|      ✔|
-| Dictionary Initializer    |       ✔|      ✔|
-| Exception Filter          |       ✔|      ✘|
-| Expression Bodied Members |       ✔|      ✔|
-| Nameof                    |       ✔|      ✔|
-| Null Conditional          |       ✔|      ✔|
-| Property Initializer      |       ✔|      ✔|
-| Static Using              |       ✔|      ✔|
-| String Interpolation      |       ✔|      ✔|
-| Thread PingPong           |       ✔|      ✔|
-| Dynamic                   |       ✘|      ✘|
 # Known issues #
 
 * Using Mono C# 6.0 compiler may cause Unity crashes while debugging in Visual Studio - http://forum.unity3d.com/threads/c-6-0.314297/page-2#post-2225696
