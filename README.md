@@ -45,6 +45,9 @@ The source code is released under [WTFPL version 2](http://www.wtfpl.net/about/)
 
 http://forum.unity3d.com/threads/c-6-0.314297/#post-2108999
 
+### Original Repository (fork from bitbucket)
+https://bitbucket.org/alexzzzz/unity-c-5.0-and-6.0-integration/src
+
 
 ### Known issues 
 
