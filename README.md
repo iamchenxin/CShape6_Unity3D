@@ -1,34 +1,10 @@
-# Install #
+### Install 
 
 1. Copy `bin\smcs.exe` from this repository to your `\Unity\Editor\Data\Mono\lib\mono\2.0` folder. Just copy, there's nothing to replace.
 
 2. Create a new Unity project or open an existing one. Make sure that `Project Settings`/`Player`/`API Compatibility Level` is set to `.Net 2.0`.
 
 3. Copy `bin\mcs.exe` or `bin\Roslyn` folder to your project's root.
-
-That's it.
-
-# How does it work? #
-
-smcs.exe receives and redirects compilation requests from Unity to one of the available C# compilers using the following rules:
-
-1. If the current project contains `Roslyn` folder, then Roslyn C# 6.0 compiler will be used;
-
-2. else if the current project contains `mcs.exe`, then this Mono C# 6.0 compiler will be used;
-
-3. else if there's `AsyncBridge.Net35.dll` somewhere inside the project, then Unity's C# 5.0 compiler will be used (\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.5\mcs.exe);
-
-4. else the stock compiler will be used (\Unity\Editor\Data\Mono\lib\mono\2.0\gmcs.exe).
-
-It means that Unity will use the alternative compiler only in those projects, where you have explicitely expressed your wish to do so. Otherwise, it will use the stock compiler as usual, and the only bad thing that can happen is if `smcs.exe` crashes for whatever reason instead of doing its job. Then you can just delete it and continue as if nothing ever happened.
-
-# License #
-
-The source code is released under [WTFPL version 2](http://www.wtfpl.net/about/).
-
-# Original talk thread at forum.unity3d.com#
-
-http://forum.unity3d.com/threads/c-6-0.314297/#post-2108999
 
 ### CShape Features in Unity3d (with Roslyn compiled)
 | Features                  |   mono2x|  IL2CPP|
@@ -46,7 +22,31 @@ http://forum.unity3d.com/threads/c-6-0.314297/#post-2108999
 | String Interpolation      |       ✔|      ✔|
 | Thread PingPong           |       ✔|      ✔|
 | Dynamic                   |       ✘|      ✘|
-# Known issues #
+
+### How does it work? 
+
+smcs.exe receives and redirects compilation requests from Unity to one of the available C# compilers using the following rules:
+
+1. If the current project contains `Roslyn` folder, then Roslyn C# 6.0 compiler will be used;
+
+2. else if the current project contains `mcs.exe`, then this Mono C# 6.0 compiler will be used;
+
+3. else if there's `AsyncBridge.Net35.dll` somewhere inside the project, then Unity's C# 5.0 compiler will be used (\Unity\Editor\Data\MonoBleedingEdge\lib\mono\4.5\mcs.exe);
+
+4. else the stock compiler will be used (\Unity\Editor\Data\Mono\lib\mono\2.0\gmcs.exe).
+
+It means that Unity will use the alternative compiler only in those projects, where you have explicitely expressed your wish to do so. Otherwise, it will use the stock compiler as usual, and the only bad thing that can happen is if `smcs.exe` crashes for whatever reason instead of doing its job. Then you can just delete it and continue as if nothing ever happened.
+
+### License 
+
+The source code is released under [WTFPL version 2](http://www.wtfpl.net/about/).
+
+### Original talk thread at forum.unity3d.com
+
+http://forum.unity3d.com/threads/c-6-0.314297/#post-2108999
+
+
+### Known issues 
 
 * Using Mono C# 6.0 compiler may cause Unity crashes while debugging in Visual Studio - http://forum.unity3d.com/threads/c-6-0.314297/page-2#post-2225696
 
@@ -83,7 +83,7 @@ http://forum.unity3d.com/threads/c-6-0.314297/#post-2108999
 
 * Async/await is not stable on Android. Results may vary - http://forum.unity3d.com/threads/c-6-0.314297/page-2#post-2188292               
 
-# Random notes #
+### Random notes 
 
 * Roslyn compiler was taken from VS 2015 installation.
 
