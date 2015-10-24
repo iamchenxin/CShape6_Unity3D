@@ -6,6 +6,8 @@
 
 3. Copy `bin\mcs.exe` or `bin\Roslyn` folder to your project's root.
 
+### Current issues
+Find a way to get Async/Await to work with IL2CPP.Force Unity IL2CPP mode interpret AsyncBridge by mono2x ,or modify AsyncBridge to work correctly with IL2CPP
 ### CShape Features in Unity3d (with Roslyn compiled)
 | Features                  |   mono2x|  IL2CPP|
 | :------------             | -------:| ------:|
