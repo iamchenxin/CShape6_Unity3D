@@ -1,3 +1,5 @@
+This repository is out of date , please go to the [Original Repository](https://bitbucket.org/alexzzzz/unity-c-5.0-and-6.0-integration/src)
+
 ### Install 
 
 1. Copy `bin\smcs.exe` from this repository to your `\Unity\Editor\Data\Mono\lib\mono\2.0` folder. Just copy, there's nothing to replace.
